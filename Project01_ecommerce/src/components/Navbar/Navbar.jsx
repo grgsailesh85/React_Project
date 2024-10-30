@@ -1,6 +1,8 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
+import { FaCaretDown } from "react-icons/fa"
 import DarkMode from "./DarkMode";
+
 const MenuLinks = [
     {
         id : 1,
@@ -23,7 +25,26 @@ const MenuLinks = [
         link : "/#blog"
     }
 ]
-const Navbar = () =>{
+
+const DropDownLinks = [
+    {
+        id : 1,
+        name : "Trending Products",
+        link : "/#"
+    },
+    {
+        id : 2,
+        name : "Best Selling",
+        link : "/#"
+    },
+    {
+        id : 3,
+        name : "Top Rated",
+        link : "/#"
+    },
+]
+
+const Navbar = () => {
     return (
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
             <div className="py-4">
@@ -51,6 +72,39 @@ const Navbar = () =>{
                                         </li>
                                     ))
                                 }
+
+                                {/* drop down  */}
+                                <li className="relative cursor-pointer group">
+                                    <a 
+                                        href="#"
+                                        className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2"
+                                    >
+                                        Quick Links
+                                        <span>
+                                            <FaCaretDown 
+                                                className="group-hover:rotate-180 duration-300"
+                                            />
+                                        </span>
+                                    </a>
+
+                                    {/* drop down links */}
+                                    <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white ">
+                                        <ul className="space-y-2">
+                                            {
+                                                DropDownLinks.map((data, index)=>(
+                                                    <li key={index}>
+                                                        <a 
+                                                            href={data.link}
+                                                            className="text-gray-500 dark:hover:text-white duration-200 inline-block w-full p-2 hover:bg-primary/20 rounded-md font-semibold"
+                                                        >
+                                                            {data.name}
+                                                        </a>
+                                                    </li>
+                                                ))
+                                            }    
+                                        </ul>    
+                                    </div> 
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -92,4 +146,5 @@ const Navbar = () =>{
         </div>
     )
 }
+
 export default Navbar
