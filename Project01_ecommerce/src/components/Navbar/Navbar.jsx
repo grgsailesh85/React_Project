@@ -44,13 +44,13 @@ const DropDownLinks = [
     },
 ]
 
-const Navbar = () => {
+const Navbar = ( { handleOrderPopup } ) => {
     return (
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
             <div className="py-4">
                 <div className="container flex justify-between items-center">
                     {/* logo and links section */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1">
                         <a 
                             href="#"
                             className="text-primary font-semibold tracking-wider text-2xl uppercase sm:text-3xl"
@@ -59,7 +59,7 @@ const Navbar = () => {
                         </a>
                         {/*Menu Items */}
                         <div className="hidden lg:block">
-                            <ul className="flex items-center gap-4 ">
+                            <ul className="flex items-center gap-1">
                                 {
                                     MenuLinks.map((data, index)=>(
                                         <li key={index}>
@@ -111,7 +111,7 @@ const Navbar = () => {
 
 
                     {/* navbar right section */}
-                    <div className="flex justify-between items-center gap-4">
+                    <div className="flex justify-between items-center gap-2">
                         {/* seacrh bar section */}
                         <div className="relative group hidden sm:block">
                             <input 
@@ -125,7 +125,7 @@ const Navbar = () => {
                         </div>
 
                         {/* order-button section */}
-                        <button className="relative p-3">
+                        <button className="relative p-3" onClick={handleOrderPopup}>
                             <FaCartShopping 
                                 className="text-xl text-gray-600 dark:text-gray-400"
                             />

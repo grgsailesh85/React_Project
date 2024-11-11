@@ -9,7 +9,7 @@ const Category2 = () =>{
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
                      {/* first column */}
-                     <div className="col-span-2 py-10 pl-5 bg-gradient-to-br from-gray-400/90 to gray-100 text-white rounded-3xl relative h-[320px] flex items-end">
+                     <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-gray-400/90 to gray-100 text-white rounded-3xl relative h-[320px] flex items-end">
                         <div>
                             <div className="mb-4">
                                 <p className="mb-[2px] text-white">Enjoy</p>
