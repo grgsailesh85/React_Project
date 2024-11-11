@@ -50,7 +50,7 @@ const Navbar = ( { handleOrderPopup } ) => {
             <div className="py-4">
                 <div className="container flex justify-between items-center">
                     {/* logo and links section */}
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-4">
                         <a 
                             href="#"
                             className="text-primary font-semibold tracking-wider text-2xl uppercase sm:text-3xl"
@@ -59,7 +59,7 @@ const Navbar = ( { handleOrderPopup } ) => {
                         </a>
                         {/*Menu Items */}
                         <div className="hidden lg:block">
-                            <ul className="flex items-center gap-1">
+                            <ul className="flex items-center gap-4">
                                 {
                                     MenuLinks.map((data, index)=>(
                                         <li key={index}>
@@ -111,7 +111,7 @@ const Navbar = ( { handleOrderPopup } ) => {
 
 
                     {/* navbar right section */}
-                    <div className="flex justify-between items-center gap-2">
+                    <div className="flex justify-between items-center gap-4">
                         {/* seacrh bar section */}
                         <div className="relative group hidden sm:block">
                             <input 

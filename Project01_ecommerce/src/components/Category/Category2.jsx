@@ -30,7 +30,7 @@ const Category2 = () =>{
                     </div>
 
                     {/* second column */}
-                    <div className="py-10 pl-5 bg-gradient-to-br from-brandGreen/90 to brandGreen/90 text-white rounded-3xl relative h-[320px] flex items-start">
+                    <div className="py-10 pl-5 bg-gradient-to-br from-brandGreen/90 to brandGreen/90 text-white rounded-3xl relative h-[320px] flex items-start overflow-hidden">
                         <div>
                             <div className="mb-4">
                                 <p className="mb-[2px] text-white">Enjoy</p>
@@ -40,15 +40,13 @@ const Category2 = () =>{
                                     text="Browse"
                                     bgColor={"bg-white"}
                                     textColor={"text-brandGreen"}
-                                    
-
                                 />
                             </div>
                         </div>
                         <img 
                             src={Image4} 
                             alt="" 
-                            className="w-[220px] absolute bottom-0 -right-6"
+                            className="w-[220px] absolute overflow -bottom-4 -right-5"
                         />
                     </div>
 

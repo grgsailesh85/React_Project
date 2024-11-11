@@ -24,7 +24,7 @@ const Category = () =>{
                         <img 
                             src={Image1} 
                             alt="" 
-                            className="w-[220px] absolute bottom-0 -right-6"
+                            className="w-[220px] absolute -top-0 -right-4"
                         />
                     </div>
 
@@ -46,7 +46,7 @@ const Category = () =>{
                         <img 
                             src={Image2 } 
                             alt="" 
-                            className="w-[250px] absolute -right-16 lg:top-[40px]"
+                            className="w-[250px] absolute -right-12 lg:top-[30px]"
                         />
                     </div>
 
