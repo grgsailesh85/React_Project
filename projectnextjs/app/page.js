@@ -1,9 +1,14 @@
-import Home from "@/components/Home"
+
+import Products from "@/components/Products"
+
+export const metadata = {
+  title : 'Homepage-ECommerce.com'
+}
 
 const HomeRoute = () =>{
   return (
     <div>
-      <Home />
+      <Products />
     </div>
   )
 }
