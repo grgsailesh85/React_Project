@@ -1,9 +1,17 @@
-
-export default function Counter () {
+type CounterProps = {
+  totalNumberOfTodos : number
+  numberOfCompletedTodos : number
+}
+export default function Counter ( {
+  numberOfCompletedTodos,
+  totalNumberOfTodos 
+} : CounterProps ) {
 
   return(
       <p>
-        <b>0</b> / 0 todos completed
+        <b>
+          {numberOfCompletedTodos}
+        </b> / {totalNumberOfTodos} {" "}todos completed
       </p>
   )
 }
