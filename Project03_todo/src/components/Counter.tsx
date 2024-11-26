@@ -1,11 +1,9 @@
-type CounterProps = {
-  totalNumberOfTodos : number
-  numberOfCompletedTodos : number
-}
-export default function Counter ( {
-  numberOfCompletedTodos,
-  totalNumberOfTodos 
-} : CounterProps ) {
+import { TodosContext } from "../contexts/TodosContextProvider";
+import { useContext } from "react";
+
+export default function Counter () {
+
+  const {totalNumberOfTodos, numberOfCompletedTodos} = useContext(TodosContext);
 
   return(
       <p>
