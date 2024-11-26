@@ -1,4 +1,4 @@
-import { Todo } from "./App";
+import { Todo } from "../lib/types";
 import DeleteButton from "./DeleteButton";
 
 type TodoListProps ={

@@ -4,20 +4,18 @@ import Header from "./Header"
 import Sidebar from "./Sidebar"
 import TodoList from "./TodoList"
 import { useState } from "react"
-
-export type Todo = {
-  id: number,
-  text: string,
-  isCompleted: boolean
-}
+import { Todo } from "../lib/types"
 
 
 const App = () =>{
   //state
+  // Todo[] TypeScript syntax, specifying that the state will be an array of Todo objects.
+  // declares a state variable todos (an array of Todo objects) and a function setTodos to update it.
   const [todos, setTodos] = useState<Todo[]>([]);
 
   //derived state
   const totalNumberOfTodos = todos.length
+  // The filter method creates a new array with all elements that pass the test implemented by the provided function. In this case, it filters the todos array, keeping only the items where isCompleted is true.
   const numberOfCompletedTodos = todos.filter(
     (todo) => todo.isCompleted
   ).length;
@@ -42,7 +40,7 @@ const App = () =>{
     setTodos(
       todos.map((todo) => {
         if(todo.id === id) {
-          return {...todo, isCompleted : !todo.isCompleted};
+          return { ...todo, isCompleted : !todo.isCompleted };
         }
         return todo;
       })

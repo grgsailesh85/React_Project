@@ -28,7 +28,7 @@ export default function AddTodoForm ({ handleAddTodo }: AddTodoProps) {
                     setTodoText(e.target.value)
                 }}
             />
-            <Button >Add to list</Button>
+            <Button>Add to list</Button>
         </form>
     )
 }
