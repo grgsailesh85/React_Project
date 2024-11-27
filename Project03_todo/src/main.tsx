@@ -13,14 +13,14 @@ createRoot(document.getElementById('root')!).render(
       redirectUri={
         // conditional expression that checks the value of process.env.NODE_ENV to determine which URL to use, based on whether the application is running in a production or development environment.
         process.env.NODE_ENV === "production"
-        ? "http://localhost:5173"
-        : "https://react-project-jade-mu.vercel.app/"
+        ? "https://react-project-jade-mu.vercel.app/"
+        : "http://localhost:5173"
       }
         
       logoutUri={
         process.env.NODE_ENV === "production"
-        ? "http://localhost:5173"
-        : "https://react-project-jade-mu.vercel.app/"
+        ? "https://react-project-jade-mu.vercel.app/"
+        : "http://localhost:5173"
       }
       // used to conditionally enable or disable the use of localStorage in a React component
       isDangerouslyUseLocalStorage = {true}
