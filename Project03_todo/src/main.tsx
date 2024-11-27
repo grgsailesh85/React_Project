@@ -3,11 +3,19 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './components/App.tsx'
 import TodosContextProvider from './contexts/TodosContextProvider.tsx'
+import { KindeProvider } from '@kinde-oss/kinde-auth-react'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <TodosContextProvider >
-      <App />
-    </TodosContextProvider>
+    <KindeProvider
+      clientId="9fe4207c0c244eb0aa3e434c51a5b356"
+      domain="https://selfbusiness.kinde.com"
+      redirectUri="http://localhost:5173"
+      logoutUri="http://localhost:5173"
+	  >
+      <TodosContextProvider >
+        <App />
+      </TodosContextProvider>
+    </KindeProvider>
   </StrictMode>,
 )

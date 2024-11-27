@@ -1,5 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Todo } from "../lib/types";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 type TodosContextProviderProps = {
     children: React.ReactNode;
@@ -16,12 +17,24 @@ type TTodosContext = {
 
 export const TodosContext = createContext<TTodosContext | null> (null)
 
+const getInitialTodos = () => {
+  const savedTodos = localStorage.getItem("todos");
+  if (savedTodos) {
+    return JSON.parse(savedTodos);
+  } else {
+    return [];
+  }
+};
+
 export default function TodosContextProvider ({children}: TodosContextProviderProps) {
+
+  const {isAuthenticated} = useKindeAuth();
+
     
   //state
   // Todo[] TypeScript syntax, specifying that the state will be an array of Todo objects.
   // declares a state variable todos (an array of Todo objects) and a function setTodos to update it.
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(getInitialTodos);
 
   //derived state
   const totalNumberOfTodos = todos.length
@@ -32,7 +45,7 @@ export default function TodosContextProvider ({children}: TodosContextProviderPr
 
   //event handlers / actions
   const handleAddTodo = (todoText : string) => {
-    if(todos.length >= 3){
+    if(todos.length >= 3 && !isAuthenticated){
       alert("Log in to add more than 3 todos")
       return;
     } else {
@@ -70,7 +83,13 @@ export default function TodosContextProvider ({children}: TodosContextProviderPr
   //   }
   //   fetchTodos();
   // }, []);
-    
+  
+  
+  //local storage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos]);
+
     return(
         <TodosContext.Provider
             value={{
