@@ -1,25 +1,16 @@
-import { Todo } from "../lib/types";
 import DeleteButton from "./DeleteButton";
+import { useTodosContext } from "../lib/hooks";
 
-type TodoListProps ={
-    todos : Todo,
-    handleDeleteTodo : (id: number) => void,
-    handleToggleTodo : (id: number) => void,
-}
+export default function TodoList () {
 
-
-export default function TodoList ({ 
-    todos, 
-    handleToggleTodo, 
-    handleDeleteTodo 
-}:TodoListProps) {
+    const { todos, handleToggleTodo, handleDeleteTodo } = useTodosContext();
 
     return(
         <ul>
             {
                 todos.length === 0 ? (
                     <li className="h-full flex justify-center items-center font-semibold">
-                        Start by adding a TODO
+                        Let's Add your Todo List
                     </li>
                 )  : null
             }
@@ -37,7 +28,7 @@ export default function TodoList ({
                         >
                             {todo.text}
                         </span> 
-                        <DeleteButton id={todo.id} handleDeleteTodo={handleDeleteTodo} />
+                        <DeleteButton id={todo.id} onDeleteTodo={handleDeleteTodo} />
                            
                     </li>
                 ))

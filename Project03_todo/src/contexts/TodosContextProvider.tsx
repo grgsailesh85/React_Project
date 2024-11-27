@@ -5,7 +5,16 @@ type TodosContextProviderProps = {
     children: React.ReactNode;
 };
 
-export const TodosContext = createContext(null)
+type TTodosContext = {
+  todos: Todo[];
+  totalNumberOfTodos: number;
+  numberOfCompletedTodos: number;
+  handleAddTodo:(todoText: string) => void;
+  handleToggleTodo: (id: number) => void;
+  handleDeleteTodo: (id: number) => void
+}
+
+export const TodosContext = createContext<TTodosContext | null> (null)
 
 export default function TodosContextProvider ({children}: TodosContextProviderProps) {
     
@@ -50,6 +59,17 @@ export default function TodosContextProvider ({children}: TodosContextProviderPr
   const handleDeleteTodo = (id:number) => {
     setTodos((prev)=>prev.filter((todo)=>todo.id !== id));
   }
+ 
+
+  //side effects fetch data from api
+  // useEffect(()=>{
+  //   const fetchTodos = async () => {
+  //     const response = await fetch('https://bytegrad.com/course-assets/api/todos');
+  //     const todos = await response.json();
+  //     setTodos(todos)
+  //   }
+  //   fetchTodos();
+  // }, []);
     
     return(
         <TodosContext.Provider
