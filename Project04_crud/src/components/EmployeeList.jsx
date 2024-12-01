@@ -3,11 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 import { Modal, Button, Alert } from 'react-bootstrap';
 import AddForm from "./AddForm";
+import Pagination from "./Pagination";
 
 
 const EmployeeList = () =>{
 
-    const {employees} = useContext(EmployeeContext)
+    const {sortedEmployees} = useContext(EmployeeContext)
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -18,6 +19,9 @@ const EmployeeList = () =>{
     const handleClose = () => setShow(false);
 
     // const handleShowAlert = () => setShowAlert(true)
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [employeesPerPage] = useState(2)
 
     const handleShowAlert = () => {
         setShowAlert(true);
@@ -32,8 +36,12 @@ const EmployeeList = () =>{
         return () => {
             handleShowAlert();
         }
-    },[employees])
+    }, [sortedEmployees])
 
+    const indexOfLastEmployee = currentPage * employeesPerPage;
+    const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+    const currentEmployees = sortedEmployees.slice(indexOfFirstEmployee, indexOfLastEmployee);
+    const totalPagesNum = Math.ceil(sortedEmployees.length / employeesPerPage)
     
 
     return (
@@ -44,7 +52,9 @@ const EmployeeList = () =>{
                         <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div className="col-sm-6">
-                        <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></Button>	
+                        <Button onClick={handleShow} className="btn btn-success" data-toggle="modal">
+                            <i className="material-icons">&#xE147;</i> <span>Add New Employee</span>
+                        </Button>	
                     </div>
                 </div>
             </div>
@@ -67,7 +77,7 @@ const EmployeeList = () =>{
                 </thead>
                 <tbody>                    
                     {
-                        employees.sort((a,b) => (a.name < b.name ? -1 : 1)).map(employee => (
+                        currentEmployees.map(employee => (
                             <tr key={employee.id}>
                                 <Employee employee={employee}/>
                             </tr>
@@ -75,6 +85,10 @@ const EmployeeList = () =>{
                     }
                 </tbody>  
             </table> 
+
+
+            <Pagination pages = {totalPagesNum} setCurrentPage={setCurrentPage}/>
+
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>
