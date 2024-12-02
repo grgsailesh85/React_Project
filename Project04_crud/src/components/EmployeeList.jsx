@@ -21,7 +21,7 @@ const EmployeeList = () =>{
     // const handleShowAlert = () => setShowAlert(true)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [employeesPerPage] = useState(2)
+    const [employeesPerPage] = useState(4)
 
     const handleShowAlert = () => {
         setShowAlert(true);
@@ -49,18 +49,18 @@ const EmployeeList = () =>{
             <div className="table-title">
                 <div className="row">
                     <div className="col-sm-6">
-                        <h2>Manage <b>Employees</b></h2>
+                        <h2>React <b>CRUD Operation</b></h2>
                     </div>
                     <div className="col-sm-6">
                         <Button onClick={handleShow} className="btn btn-success" data-toggle="modal">
-                            <i className="material-icons">&#xE147;</i> <span>Add New Employee</span>
+                            <i className="material-icons">&#xE147;</i> <span>Add New Data</span>
                         </Button>	
                     </div>
                 </div>
             </div>
 
             <Alert show={showAlert} variant="success">
-                Employee List Updated Successfully
+                Data List Updated Successfully
             </Alert>
 
 
@@ -97,7 +97,7 @@ const EmployeeList = () =>{
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        Add Employee
+                        Add Data
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

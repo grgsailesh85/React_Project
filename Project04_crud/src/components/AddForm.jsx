@@ -73,7 +73,7 @@ const AddForm = () => {
 
 
             <Button variant="success" type="submit" block>
-                Add New Employee
+                Add New Data
             </Button>
         </Form>
     )

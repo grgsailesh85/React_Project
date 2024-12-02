@@ -59,7 +59,7 @@ const Employee = ( {employee} ) =>{
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        Edit Employee
+                        Edit Data
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

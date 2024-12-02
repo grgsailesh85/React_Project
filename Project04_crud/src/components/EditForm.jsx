@@ -68,7 +68,7 @@ const EditForm = ({theEmployee}) => {
 
 
             <Button variant="success" type="submit" block>
-                Edit Employee
+                Edit Data
             </Button>
         </Form>
     )
