@@ -12,7 +12,7 @@ const AddForm = () => {
         name: "",
         email: "",
         phone: "",
-        address:""
+        address: ""
     })
 
     const onInputChange = (e) => {
