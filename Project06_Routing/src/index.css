@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: #000;
+    color : #fff;
+}
+
+h1{
+    position: absolute;
+    text-decoration: underline;
+    font-size: 50px;
+    font-weight: 600;
+    top: 50vh;
+    left : 50vw;
+    transform: translate(-50%, -50%);
+    color:#fff;
+}
+p{
+    position: absolute;
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: 600;
+    top: 38vh;
+    left : 50vw;
+    /* transform: translate(-50%, -50%); */
+    color:#fff;
+}
