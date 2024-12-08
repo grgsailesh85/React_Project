@@ -1,6 +1,14 @@
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import HomeCard from "./components/HomeCard"
+
 const App = () => {
   return (
-    <div className="text-4xl">App</div>
+    <>
+      <Navbar />
+      <Hero />
+      <HomeCard />
+    </>
   )
 }
 
