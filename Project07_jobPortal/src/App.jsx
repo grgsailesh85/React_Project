@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Navbar />
       <Hero />
-      <HomeCard />
+      <HomeCard /> 
     </>
   )
 }
