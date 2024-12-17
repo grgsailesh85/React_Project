@@ -6,7 +6,7 @@ const Hero = () => {
                 <h1 className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
                     Become a React Dev
                 </h1>
-                <p className="my-4 text-xl text-white">
+                <p className="my-4 text-xl text-red-400">
                     Find the React job that fits your skills and needs
                 </p>
             </div>
