@@ -1,16 +1,15 @@
 import useTheme from "../context/theme";
 
-const ThemeBtn = () => {
+export default function ThemeBtn() {
   const { themeMode, lightTheme, darkTheme } = useTheme();
   const onChangeBtn = (e) => {
-    const darkModeStatus = e.currentTarget.checked
-    if(darkModeStatus) {
-        darkTheme()
+    const darkModeStatus = e.currentTarget.checked;
+    if (darkModeStatus) {
+      darkTheme();
     } else {
-        lightTheme()
+      lightTheme();
     }
   };
-
   return (
     <label className="relative inline-flex items-center cursor-pointer">
       <input
@@ -26,6 +25,4 @@ const ThemeBtn = () => {
       </span>
     </label>
   );
-};
-
-export default ThemeBtn;
+}
